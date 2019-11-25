@@ -1,12 +1,19 @@
 <?php
-class NewClass {
+class Person{
+    public function __construct($hair, $eyes, $height){
+        $this->hair = $hair;
+        $this->eyes = $eyes;
+        $this->height = $height;
+    }
 
-    public $info = "Here is some public info";
-    protected $moreInfo = "here is some protected info";
-    private $evenMoreInfo = "here is some private info";
+    private $hair;
+    private $eyes;
+    private $height;
+
+    public function speakWords(){
+        echo "I have $this->hair hair and $this->eyes eyes and i am very $this->height";
+    }
+    
 
 }
 
-$object = new NewClass;
-
-var_dump($object);

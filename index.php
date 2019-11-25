@@ -1,3 +1,7 @@
+<?php
+    include "includes/newclass.php"
+?>
+
 <!DOCTYPE html>
 
     <head>
@@ -10,7 +14,11 @@
     </head>
     <body>
         <?php
-            echo "hi";
+            $person1 = new Person("red", "blue", "tall");
+            $person1->speakWords();
+            echo "<br />";
+            $person1 = new Person("blonde", "orange", "short");
+            $person1->speakWords();
         ?>
     </body>
 </html>
