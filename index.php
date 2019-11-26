@@ -1,19 +1,6 @@
 <?php
-    spl_autoload_register("myAutoLoader");
-
-    function myAutoLoader($className){
-        $path = "includes/";
-        $extension = ".php";
-        $fullPath = $path . $className . $extension;
-
-        if(!file_exists($fullPath)){
-            return false;
-        }
-
-        include_once $fullPath;
-    }
-
-    
+    declare(strict_types = 1);
+    include "includes/autoLoad.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,18 +14,17 @@
 
     </head>
     <body>
-        <?php
-            $person1 = new Person("red", "blue", "tall");
-            $person1->speakWords();
-            echo "<br />";
-            $person1 = new Person("blonde", "orange", "short");
-            $person1->speakWords();
-            echo "<br />";
-            echo "we are " . Person::$species;
-            echo "<br />";
-            Person::vampireBite();
-            echo "<br />";
-            echo "we are " . Person::$species;
-        ?>
+      <form action="includes/calc.inc.php" method="POST">
+        <p>My PHP calculator</p>
+        <input type="number" name="num1" placeholder="First Number">
+        <select name="oper">
+            <option value="add">Add</option>
+            <option value="sub">Sub</option>
+            <option value="mul">Mul</option>
+            <option value="div">Div</option>
+        </select>
+        <input type="number" name="num2">
+        <button type="submit" name="submit">Calculate</button>
+      </form>
     </body>
 </html>
