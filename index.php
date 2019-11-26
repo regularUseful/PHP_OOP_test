@@ -1,5 +1,19 @@
 <?php
-    include "includes/newclass.php"
+    spl_autoload_register("myAutoLoader");
+
+    function myAutoLoader($className){
+        $path = "includes/";
+        $extension = ".php";
+        $fullPath = $path . $className . $extension;
+
+        if(!file_exists($fullPath)){
+            return false;
+        }
+
+        include_once $fullPath;
+    }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +33,12 @@
             echo "<br />";
             $person1 = new Person("blonde", "orange", "short");
             $person1->speakWords();
+            echo "<br />";
+            echo "we are " . Person::$species;
+            echo "<br />";
+            Person::vampireBite();
+            echo "<br />";
+            echo "we are " . Person::$species;
         ?>
     </body>
 </html>
